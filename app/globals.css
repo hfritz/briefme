@@ -12,15 +12,92 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── Hero floating cards ── */
+@keyframes float-a {
+  0%, 100% { transform: translateY(0px) rotate(2deg); }
+  50%       { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50%       { transform: translateY(-9px) rotate(-1deg); }
+}
+@keyframes float-c {
+  0%, 100% { transform: translateY(0px) rotate(1deg); }
+  50%       { transform: translateY(-7px) rotate(1deg); }
+}
+
+/* ── Hero content entrance ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float-a { animation: float-a 5s ease-in-out infinite; }
+.animate-float-b { animation: float-b 6.5s ease-in-out infinite 1s; }
+.animate-float-c { animation: float-c 4.5s ease-in-out infinite 0.5s; }
+
+.animate-fade-up-1 { animation: fade-up 0.7s ease-out both; }
+.animate-fade-up-2 { animation: fade-up 0.7s ease-out 0.15s both; }
+.animate-fade-up-3 { animation: fade-up 0.7s ease-out 0.3s both; }
+.animate-fade-up-4 { animation: fade-up 0.7s ease-out 0.45s both; }
+
+/* ── Upload zone gradient border ── */
+@keyframes border-spin {
+  to { --border-angle: 360deg; }
+}
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+.upload-gradient-border {
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(white, white),
+    conic-gradient(from var(--border-angle), #6366F1, #8B5CF6, #06B6D4, #6366F1);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: border-spin 4s linear infinite;
+}
+
+/* ── Print / Save as PDF ── */
+@media print {
+  .no-print { display: none !important; }
+  header, footer { display: none !important; }
+  body { background: white !important; }
+  section:not([data-results]) { display: none !important; }
+  .shadow-sm, .shadow-lg, .shadow-xl { box-shadow: none !important; }
+  a { color: inherit !important; text-decoration: none !important; }
+}
+
+/* ── CTA animated gradient ── */
+@keyframes gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+.btn-gradient-flow {
+  background-size: 200% auto;
+  animation: gradient-flow 3s ease infinite;
+}
+
+/* ── Button shimmer ── */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%) skewX(-15deg); }
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%) skewX(-15deg);
+}
+.btn-shimmer:hover::after {
+  animation: shimmer 0.7s ease forwards;
 }
