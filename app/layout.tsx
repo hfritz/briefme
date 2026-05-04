@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PrepKit — Interview Prep in Seconds",
-  description: "Upload your CV and a job description to get tailored interview prep instantly.",
+  title: "BriefMe — Interview Prep in Seconds",
+  description: "Upload your CV and a job description to get a tailored interview briefing instantly. Match score, talking points, company intel, and more — free.",
 };
 
 export default function RootLayout({

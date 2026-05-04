@@ -75,11 +75,20 @@ export default function Home() {
       {/* ── Header ── */}
       <header className="border-b border-white/10 bg-[#0C0A20]/80 backdrop-blur-sm sticky top-0 z-20">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-              <span className="text-white text-sm font-bold">P</span>
+          <div className="flex items-center gap-2.5">
+            {/* Icon mark */}
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/40 flex-shrink-0">
+              <svg className="w-[18px] h-[18px]" viewBox="0 0 20 20" fill="none">
+                <path d="M3 4.5A1.5 1.5 0 0 1 4.5 3h11A1.5 1.5 0 0 1 17 4.5V12A1.5 1.5 0 0 1 15.5 13.5H10.5L7 17V13.5H4.5A1.5 1.5 0 0 1 3 12V4.5Z" fill="white"/>
+                <path d="M6.5 7.5h7M6.5 10.5h4" stroke="#6366F1" strokeWidth="1.4" strokeLinecap="round"/>
+                <circle cx="14" cy="10.5" r="1" fill="#818CF8"/>
+              </svg>
             </div>
-            <span className="font-semibold text-white text-lg">PrepKit</span>
+            {/* Wordmark */}
+            <div className="flex items-baseline">
+              <span className="font-bold text-white text-xl tracking-tight">Brief</span>
+              <span className="font-bold text-xl tracking-tight bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent">Me</span>
+            </div>
           </div>
           {results ? (
             <button onClick={reset} className="text-sm text-slate-400 hover:text-white transition-colors">
@@ -128,10 +137,6 @@ export default function Home() {
             {/* Left — copy with entrance animations */}
             <div className="flex-1 text-center lg:text-left">
               <div className="animate-fade-up-1 flex flex-wrap items-center gap-3 justify-center lg:justify-start mb-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-                  Powered by Groq · Llama 3.3
-                </div>
                 <div className="relative inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 text-white text-xs font-bold tracking-wide shadow-lg shadow-emerald-500/40">
                   <span className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 animate-ping opacity-30" />
                   <span className="relative">✦</span>
@@ -145,7 +150,8 @@ export default function Home() {
                 </span>
               </h1>
               <p className="animate-fade-up-3 text-slate-400 text-lg leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
-                Drop your CV and any job description. PrepKit analyzes your fit, decodes what the company really wants, and gives you tailored talking points, company intel, and smart questions to ask — in 30 seconds. Free.
+                Drop your CV and any job description. BriefMe analyzes your fit, decodes what the company really wants, and gives you tailored talking points, company intel, and smart questions to ask — in seconds. Free.{' '}
+                <span className="text-slate-600 text-sm">Powered by Groq · Llama 3.3</span>
               </p>
               <div className="animate-fade-up-4">
                 <button
@@ -306,7 +312,7 @@ export default function Home() {
             </div>
             <div className="mt-10 text-center">
               <p className="text-slate-400 text-sm">
-                PrepKit replaces all of that with a single upload —{' '}
+                BriefMe replaces all of that with a single upload —{' '}
                 <span className="text-indigo-500 font-medium">tailored to you and the role, in seconds.</span>
               </p>
             </div>
@@ -344,7 +350,7 @@ export default function Home() {
                 {
                   step: '03',
                   icon: '🚀',
-                  title: 'Get your prep kit',
+                  title: 'Get your briefing',
                   description: 'Instant match score, talking points, company snapshot, and smart questions to ask — all tailored to you.',
                   color: '#06B6D4',
                 },

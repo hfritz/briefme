@@ -94,7 +94,7 @@ async function resolveJobDescription(jd: string): Promise<string> {
   if (!isUrl) return jd;
 
   const res = await fetch(jd.trim(), {
-    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; PrepKit/1.0)' },
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; BriefMe/1.0)' },
     signal: AbortSignal.timeout(10000),
   });
 

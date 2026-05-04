@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <defs>
+    <linearGradient id="icon-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="word-me" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon mark: rounded square -->
+  <rect width="48" height="48" rx="12" fill="url(#icon-bg)"/>
+
+  <!-- Speech bubble body -->
+  <path d="M9 14a4 4 0 0 1 4-4h22a4 4 0 0 1 4 4v13a4 4 0 0 1-4 4H26l-8 7v-7h-5a4 4 0 0 1-4-4V14z" fill="white"/>
+
+  <!-- Text lines inside bubble -->
+  <rect x="15" y="19" width="18" height="2.5" rx="1.25" fill="#6366F1"/>
+  <rect x="15" y="24.5" width="12" height="2.5" rx="1.25" fill="#818CF8" opacity="0.7"/>
+
+  <!-- Sparkle dot -->
+  <circle cx="36" cy="25.5" r="2" fill="#A78BFA" opacity="0.8"/>
+
+  <!-- Wordmark: "Brief" -->
+  <text x="62" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="26" fill="#0F172A">Brief</text>
+
+  <!-- Wordmark: "Me" in gradient (approximated with fill) -->
+  <text x="136" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="26" fill="url(#word-me)">Me</text>
+</svg>
