@@ -16,7 +16,8 @@ Return ONLY a valid JSON object with this exact structure:
   },
   "role": {
     "title": "<exact job title from JD>",
-    "company": "<company name from JD>"
+    "company": "<company name from JD>",
+    "website": "<company website URL if mentioned or clearly inferable from the JD — e.g. https://acme.com. Null if unknown.>"
   },
   "companySnapshot": {
     "overview": "<2-3 sentences: what the company does, market position>",
@@ -93,10 +94,15 @@ async function resolveJobDescription(jd: string): Promise<string> {
   const isUrl = /^https?:\/\/.+/.test(jd.trim());
   if (!isUrl) return jd;
 
-  const res = await fetch(jd.trim(), {
-    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; BriefMe/1.0)' },
-    signal: AbortSignal.timeout(10000),
-  });
+  let res: Response;
+  try {
+    res = await fetch(jd.trim(), {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; BriefMe/1.0)' },
+      signal: AbortSignal.timeout(10000),
+    });
+  } catch {
+    throw new Error("Couldn't reach that URL — the site may block automated requests. Please paste the job description as text instead.");
+  }
 
   if (!res.ok) throw new Error(`Could not fetch the job URL (status ${res.status}). Please paste the job description as text instead.`);
 

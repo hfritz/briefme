@@ -20,6 +20,7 @@ export interface PrepResults {
   role: {
     title: string;
     company: string;
+    website?: string;
   };
   companySnapshot: {
     overview: string;

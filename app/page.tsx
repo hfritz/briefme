@@ -593,13 +593,35 @@ export default function Home() {
                 </div>
               </div>
 
-              <PrepCard title="Company Snapshot" icon="🏢" accent="#06B6D4"
-                sections={[
-                  { label: 'Overview', value: results.companySnapshot.overview },
-                  { label: 'Business Model', value: results.companySnapshot.businessModel },
-                  { label: 'Culture', value: results.companySnapshot.culture },
-                ]}
-              />
+              <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col gap-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0" style={{ backgroundColor: '#06B6D415' }}>🏢</span>
+                    <h3 className="font-semibold text-slate-900">Company Snapshot</h3>
+                  </div>
+                  {results.role.website && (
+                    <a href={results.role.website} target="_blank" rel="noopener noreferrer"
+                      className="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-200 text-slate-500 hover:border-cyan-400 hover:text-cyan-600 transition-all">
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                      Visit website
+                    </a>
+                  )}
+                </div>
+                <dl className="space-y-3">
+                  {[
+                    { label: 'Overview', value: results.companySnapshot.overview },
+                    { label: 'Business Model', value: results.companySnapshot.businessModel },
+                    { label: 'Culture', value: results.companySnapshot.culture },
+                  ].map((s, i) => (
+                    <div key={i}>
+                      <dt className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">{s.label}</dt>
+                      <dd className="text-sm text-slate-700 leading-relaxed">{s.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
 
               {/* Recent News */}
               <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col gap-4">
