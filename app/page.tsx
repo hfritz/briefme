@@ -685,7 +685,7 @@ export default function Home() {
         <p className="text-slate-400 text-sm">
           Built by{' '}
           <a
-            href="https://helmut-fritz.vercel.app"
+            href="https://helmutfritz.fyi"
             target="_blank"
             rel="noopener noreferrer"
             className="text-indigo-400 hover:text-indigo-600 transition-colors"
