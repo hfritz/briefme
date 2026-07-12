@@ -151,7 +151,7 @@ export default function Home() {
               </h1>
               <p className="animate-fade-up-3 text-slate-400 text-lg leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
                 Drop your CV and any job description. BriefMe analyzes your fit, decodes what the company really wants, and gives you tailored talking points, company intel, and smart questions to ask — in seconds. Free.{' '}
-                <span className="text-slate-600 text-sm">Powered by Groq · Llama 3.3</span>
+                <span className="text-slate-600 text-sm">Powered by Groq · GPT OSS 120B</span>
               </p>
               <div className="animate-fade-up-4">
                 <button
